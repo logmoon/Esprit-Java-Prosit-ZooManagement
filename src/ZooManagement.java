@@ -5,22 +5,21 @@ public class ZooManagement
     public static void main(String[] args)
     {
         /*
-        // Instruction 1
-
-        String zooName = "Zoo";
-        int nbCages = 20;
-        System.out.println("My Zoo: " + zooName + ". Comporte: " + nbCages);
+        Instruction 5:
+        Animal lion = new Animal();
+        Zoo myZoo = new Zoo();
+        Instruction 6:
+        Apres avoir ajouté les constructeurs parametré aux classes Animal et Zoo, on voit deux erreurs
+        au niveau de l'instanciation des deux instance lion de Animal et myZoo de Zoo, leurs constructeurs
+        demande les parametres qu'on a demandé au niveau du constructeur dans Animal et Zoo.
         */
 
-        // Instruction 2
-        Scanner scanner = new Scanner(System.in);
+        Animal lion = new Animal("Felidae", "Lion", 3, true);
+        Animal giraffe = new Animal("Giraffids", "Giraffe", 1, true);
+        Zoo myZoo = new Zoo("MyZoo", "Tunis", 20);
 
-        System.out.println("Enter the zoo's name:");
-        String zooName = scanner.nextLine();
-
-        System.out.println("Enter the number of cages");
-        int nbCages = scanner.nextInt();
-
-        System.out.println("My Zoo: " + zooName + ". Comporte: " + nbCages);
+        myZoo.displayZoo();
+        System.out.println(myZoo);
+        System.out.println(myZoo.toString());
     }
 }
