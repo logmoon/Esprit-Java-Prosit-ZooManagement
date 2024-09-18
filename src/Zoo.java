@@ -1,4 +1,3 @@
-
 public class Zoo {
     Animal[] animals;
     String name;

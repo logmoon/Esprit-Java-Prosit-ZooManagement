@@ -16,10 +16,15 @@ public class ZooManagement
 
         Animal lion = new Animal("Felidae", "Lion", 3, true);
         Animal giraffe = new Animal("Giraffids", "Giraffe", 1, true);
+
+        System.out.println(lion);
+        System.out.println(giraffe.toString());
+
         Zoo myZoo = new Zoo("MyZoo", "Tunis", 20);
 
         myZoo.displayZoo();
         System.out.println(myZoo);
         System.out.println(myZoo.toString());
+
     }
 }
