@@ -4,27 +4,83 @@ public class ZooManagement
 {
     public static void main(String[] args)
     {
-        /*
-        Instruction 5:
-        Animal lion = new Animal();
-        Zoo myZoo = new Zoo();
-        Instruction 6:
-        Apres avoir ajouté les constructeurs parametré aux classes Animal et Zoo, on voit deux erreurs
-        au niveau de l'instanciation des deux instance lion de Animal et myZoo de Zoo, leurs constructeurs
-        demande les parametres qu'on a demandé au niveau du constructeur dans Animal et Zoo.
-        */
-
+        // Instruction 10
         Animal lion = new Animal("Felidae", "Lion", 3, true);
         Animal giraffe = new Animal("Giraffids", "Giraffe", 1, true);
+        Animal giraffe1 = new Animal("Giraffids", "Giraffe", 1, true);
+        Animal giraffe2 = new Animal("Giraffids", "Giraffe", 1, true);
+        Animal giraffe3 = new Animal("Giraffids", "Giraffe", 1, true);
+        Animal giraffe4 = new Animal("Giraffids", "Giraffe", 1, true);
 
-        System.out.println(lion);
-        System.out.println(giraffe.toString());
+        Zoo myZoo = new Zoo("MyZoo", "Tunis");
 
-        Zoo myZoo = new Zoo("MyZoo", "Tunis", 20);
+        if (myZoo.addAnimal(lion)) {
+            System.out.println("Animal added");
+        }
+        else {
+            System.out.println("Animal wasn't added");
+        }
 
-        myZoo.displayZoo();
-        System.out.println(myZoo);
-        System.out.println(myZoo.toString());
+        if (myZoo.addAnimal(giraffe)) {
+            System.out.println("Animal added");
+        }
+        else {
+            System.out.println("Animal wasn't added");
+        }
 
+        if (myZoo.addAnimal(giraffe1)) {
+            System.out.println("Animal added");
+        }
+        else {
+            System.out.println("Animal wasn't added");
+        }
+
+        if (myZoo.addAnimal(giraffe2)) {
+            System.out.println("Animal added");
+        }
+        else {
+            System.out.println("Animal wasn't added");
+        }
+
+        if (myZoo.addAnimal(giraffe3)) {
+            System.out.println("Animal added");
+        }
+        else {
+            System.out.println("Animal wasn't added");
+        }
+
+        // Avec un nb de cages = 5. giraffe4 ne s'ajoute pas au liste des animals, la methode addAnimal retourne false.
+        if (myZoo.addAnimal(giraffe4)) {
+            System.out.println("Animal added");
+        }
+        else {
+            System.out.println("Animal wasn't added");
+        }
+
+        // Instruction 11
+        // Initializer myZoo une autre fois pour tester les autres methodes
+        myZoo = new Zoo("MyZoo", "Tunis");
+        myZoo.addAnimal(lion);
+        Animal lion2 = new Animal("Felidae", "Lion", 3, true);
+        myZoo.addAnimal(lion2);
+
+        myZoo.showAnimals();
+
+        System.out.println(myZoo.searchAnimal(lion)); // Cela retourne 0 qui est bien l'indice de l'animal lion
+        System.out.println(myZoo.searchAnimal(lion2)); // Cela retourne 0 aussi, mais lion2 a l'index 1 dans la tableau animals
+
+
+        // Tester les autres methodes
+        // Remove animal
+        if (myZoo.removeAnimal(lion2)) {
+            System.out.println("Animal removed");
+        }
+        myZoo.showAnimals();
+        // Is Zoo Full
+        System.out.println(myZoo.isZooFull());
+        // Comparer
+        Zoo mySecondZoo = new Zoo("MySecondZoo", "Nabeul");
+        Zoo z = Zoo.comparerZoo(myZoo, mySecondZoo);
+        System.out.println(z);
     }
 }
