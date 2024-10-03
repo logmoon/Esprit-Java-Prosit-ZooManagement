@@ -1,4 +1,6 @@
-import java.util.Scanner;
+package tn.esprit.gestionzoo.main;
+
+import tn.esprit.gestionzoo.entities.*;
 
 public class ZooManagement
 {
@@ -15,46 +17,46 @@ public class ZooManagement
         Zoo myZoo = new Zoo("MyZoo", "Tunis");
 
         if (myZoo.addAnimal(lion)) {
-            System.out.println("Animal added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal added");
         }
         else {
-            System.out.println("Animal wasn't added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal wasn't added");
         }
 
         if (myZoo.addAnimal(giraffe)) {
-            System.out.println("Animal added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal added");
         }
         else {
-            System.out.println("Animal wasn't added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal wasn't added");
         }
 
         if (myZoo.addAnimal(giraffe1)) {
-            System.out.println("Animal added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal added");
         }
         else {
-            System.out.println("Animal wasn't added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal wasn't added");
         }
 
         if (myZoo.addAnimal(giraffe2)) {
-            System.out.println("Animal added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal added");
         }
         else {
-            System.out.println("Animal wasn't added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal wasn't added");
         }
 
         if (myZoo.addAnimal(giraffe3)) {
-            System.out.println("Animal added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal added");
         }
         else {
-            System.out.println("Animal wasn't added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal wasn't added");
         }
 
         // Avec un nb de cages = 5. giraffe4 ne s'ajoute pas au liste des animals, la methode addAnimal retourne false.
         if (myZoo.addAnimal(giraffe4)) {
-            System.out.println("Animal added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal added");
         }
         else {
-            System.out.println("Animal wasn't added");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal wasn't added");
         }
 
         // Instruction 11
@@ -73,10 +75,10 @@ public class ZooManagement
         // Tester les autres methodes
         // Remove animal
         if (myZoo.removeAnimal(lion2)) {
-            System.out.println("Animal removed");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal removed");
         }
         myZoo.showAnimals();
-        // Is Zoo Full
+        // Is tn.esprit.gestionzoo.entities.Zoo Full
         System.out.println(myZoo.isZooFull());
         // Comparer
         Zoo mySecondZoo = new Zoo("MySecondZoo", "Nabeul");

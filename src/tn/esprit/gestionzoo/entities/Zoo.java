@@ -1,12 +1,12 @@
-import java.util.Objects;
+package tn.esprit.gestionzoo.entities;
 
 public class Zoo {
-    Animal[] animals;
-    String name;
-    String city;
-    int nbAnimals;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private int nbAnimals;
 
-    final int NB_CAGES = 25; // Instruction 14
+    private final static int NB_CAGES = 25; // Instruction 14
 
     public Zoo(String name, String city) {
         animals = new Animal[NB_CAGES];
@@ -15,9 +15,46 @@ public class Zoo {
         this.nbAnimals = 0;
     }
 
+    // Instruction 18 (Getters and Setters)
+    public Animal[] getAnimals() {
+        return this.animals;
+    }
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        // if (name == null || name.isEmpty()) {
+        // OR
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        else {
+            this.name = name;
+        }
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbAnimals() {
+        return this.nbAnimals;
+    }
+    public void setNbAnimals(int nbAnimals) {
+        this.nbAnimals = nbAnimals;
+    }
+    // ---
+
     /*
     // Instruction 10
-    public boolean addAnimal(Animal animal) {
+    public boolean addAnimal(tn.esprit.gestionzoo.entities.Animal animal) {
         if (nbAnimals < nbCages) {
             animals[nbAnimals++] = animal;
             return true;
@@ -25,9 +62,10 @@ public class Zoo {
         return false;
     }
     */
+
     // Instruction 12
     public boolean addAnimal(Animal animal) {
-        if (nbAnimals >= NB_CAGES) return false;
+        if (isZooFull()) return false; // Instruction 17
 
         for (int i = 0; i < NB_CAGES; i++) {
             if (animals[i] == null) {
@@ -48,7 +86,7 @@ public class Zoo {
     }
     public int searchAnimal(Animal animal) {
         for (int i = 0; i < NB_CAGES; i++) {
-            if (animals[i].name.equals(animal.name)) {
+            if (animals[i].getName().equals(animal.getName())) {
                 return i;
             }
         }
