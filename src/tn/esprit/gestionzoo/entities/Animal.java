@@ -50,6 +50,6 @@ public class Animal {
 
     @Override
     public String toString() {
-        return family + " " + name + " " + age + " " + isMammal;
+        return "Animal Name: " + name + ".\nFamily: " + family + ".\nAge: " + age + ".\nIs Mammal?: " + isMammal;
     }
 }

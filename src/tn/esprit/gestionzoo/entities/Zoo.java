@@ -27,9 +27,9 @@ public class Zoo {
         return this.name;
     }
     public void setName(String name) {
-        // if (name == null || name.isEmpty()) {
+        if (name == null || name.isEmpty()) {
         // OR
-        if (name.isBlank()) {
+        // if (name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
         else {
