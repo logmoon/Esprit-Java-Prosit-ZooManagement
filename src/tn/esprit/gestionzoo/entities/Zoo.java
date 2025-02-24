@@ -2,17 +2,76 @@ package tn.esprit.gestionzoo.entities;
 
 public class Zoo {
     private Animal[] animals;
+
     private String name;
     private String city;
     private int nbAnimals;
 
+
+    // Instruction 25
+    private Aquatic[] aquaticAnimals;
+
     private final static int NB_CAGES = 25; // Instruction 14
 
+    private final static int MAX_AQUATIC_ANIMALS = 10; // Instruction 25
+
     public Zoo(String name, String city) {
-        animals = new Animal[NB_CAGES];
+        this.animals = new Animal[NB_CAGES];
         this.name = name;
         this.city = city;
         this.nbAnimals = 0;
+
+        // Instruction 25
+        this.aquaticAnimals = new Aquatic[MAX_AQUATIC_ANIMALS];
+    }
+
+    // Instruction 26
+    public void addAquaticAnimal(Aquatic aquatic)
+    {
+        for (int i = 0; i < MAX_AQUATIC_ANIMALS; i++) {
+            if (aquaticAnimals[i] == null) {
+                aquaticAnimals[i] = aquatic;
+                nbAnimals++;
+            }
+        }
+    }
+
+    // Instruction 27
+    public void showAquaticAnimals() {
+        for (Aquatic aquatic : aquaticAnimals) {
+            aquatic.swim();
+        }
+    }
+
+    // Instruction 29
+    public float maxPenguinSwimmingDepth() {
+        float current_depth = 0.0f;
+        for (Aquatic aquatic : aquaticAnimals) {
+            if (aquatic instanceof Penguin) {
+                Penguin p = (Penguin)aquatic;
+                if (p.swimmingDepth > current_depth)
+                    current_depth = p.swimmingDepth;
+            }
+        }
+        return current_depth;
+    }
+
+    // Instruction 30
+    public void displayNumberOfAquaticsByType()
+    {
+        int penguins = 0;
+        int dolphins = 0;
+        for (Aquatic aquatic : aquaticAnimals) {
+            if (aquatic instanceof Penguin) {
+                penguins++;
+            }
+            else if (aquatic instanceof Dolphin) {
+                dolphins++;
+            }
+        }
+
+        System.out.println("Penguins: " + penguins);
+        System.out.println("Dolphins: " + dolphins);
     }
 
     // Instruction 18 (Getters and Setters)
