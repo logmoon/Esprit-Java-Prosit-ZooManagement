@@ -1,5 +1,8 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
+
 public class Zoo {
     private Animal[] animals;
 
@@ -11,7 +14,8 @@ public class Zoo {
     // Instruction 25
     private Aquatic[] aquaticAnimals;
 
-    private final static int NB_CAGES = 25; // Instruction 14
+    // private final static int NB_CAGES = 25; // Instruction 14
+    private final static int NB_CAGES = 3; // Instruction 33
 
     private final static int MAX_AQUATIC_ANIMALS = 10; // Instruction 25
 
@@ -112,16 +116,6 @@ public class Zoo {
     // ---
 
     /*
-    // Instruction 10
-    public boolean addAnimal(tn.esprit.gestionzoo.entities.Animal animal) {
-        if (nbAnimals < nbCages) {
-            animals[nbAnimals++] = animal;
-            return true;
-        }
-        return false;
-    }
-    */
-
     // Instruction 12
     public boolean addAnimal(Animal animal) {
         if (isZooFull()) return false; // Instruction 17
@@ -134,7 +128,32 @@ public class Zoo {
             }
         }
         return false;
-    }
+    } 
+    */
+    
+    // Instruction 32
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
+        
+        // AMEN:
+        // Check for the age first:
+        if (animal.getAge() < 0) {
+            // Throw the excpection if it's negative.
+            throw new InvalidAgeException(animal);
+        }
+
+        // Try to add in the animal
+        for (int i = 0; i < NB_CAGES; i++) {
+            if (animals[i] == null) {
+                animals[i] = animal;
+                nbAnimals++;
+                return;
+            }
+        }
+
+        // AMEN:
+        // If we didn't return above, that means our zoo is full.
+        throw new ZooFullException();
+    } 
     // ---
 
     // Instruction 11
