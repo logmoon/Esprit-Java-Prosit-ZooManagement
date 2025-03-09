@@ -134,25 +134,25 @@ public class Zoo {
     // Instruction 32
     public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
         
-        // AMEN:
         // Check for the age first:
         if (animal.getAge() < 0) {
             // Throw the excpection if it's negative.
             throw new InvalidAgeException(animal);
         }
 
-        // Try to add in the animal
-        for (int i = 0; i < NB_CAGES; i++) {
-            if (animals[i] == null) {
-                animals[i] = animal;
-                nbAnimals++;
-                return;
-            }
+        // Throw the zoo full exception
+        if (isZooFull()) {
+            throw new ZooFullException();
         }
 
-        // AMEN:
-        // If we didn't return above, that means our zoo is full.
-        throw new ZooFullException();
+        // Return if the animal exists
+        if (searchAnimal(animal) != -1) {
+            return;
+        }
+        
+        // Add the animal
+        animals[nbAnimals] = animal;
+        nbAnimals++;
     } 
     // ---
 
@@ -163,7 +163,7 @@ public class Zoo {
         }
     }
     public int searchAnimal(Animal animal) {
-        for (int i = 0; i < NB_CAGES; i++) {
+        for (int i = 0; i < nbAnimals; i++) {
             if (animals[i].getName().equals(animal.getName())) {
                 return i;
             }
