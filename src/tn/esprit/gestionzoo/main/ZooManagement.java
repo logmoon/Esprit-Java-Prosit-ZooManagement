@@ -1,5 +1,6 @@
 package tn.esprit.gestionzoo.main;
 import tn.esprit.gestionzoo.entities.*;
+import tn.esprit.gestionzoo.enums.Food;
 import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
 import tn.esprit.gestionzoo.exceptions.ZooFullException;
 
@@ -7,6 +8,16 @@ public class ZooManagement
 {
     public static void main(String[] args)
     {
+        // Instruction 38
+        Penguin penguin = new Penguin("Spheniscidae ", "Penguin", -1, false, "cold ocean?", 20);
+        penguin.eatMeat(Food.MEAT);
+
+        Terrestrial elephant = new Terrestrial("Elephantidae", "Elephant", 5, true, 4);
+        elephant.eatMeat(Food.MEAT);
+        elephant.eatPlant(Food.PLANT);
+        elephant.eatPlantAndMeat(Food.BOTH);
+
+        /*
         Zoo myZoo = new Zoo("My Zoo", "Somewhere");
 
         // Instruction 33
@@ -36,6 +47,7 @@ public class ZooManagement
         catch (InvalidAgeException e) {
             System.out.println(e.getMessage());
         }
+        */
 
 
         /*
